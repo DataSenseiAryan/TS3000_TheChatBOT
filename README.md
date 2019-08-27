@@ -16,5 +16,38 @@ Tony Stark 3000 - The Chat Bot Its a very basic level conversational AI.
 > python3 createDB.py 
 
 
-This will create Database from Raw JSON text file which you unzipped earlier.
+   This will create Database from Raw JSON text file which you unzipped earlier.
+- Run createCORPUS.py
+> python3 createCORPUS.py
+
+
+   This will create corpus .For example I created 2011-08small.txt
+
+- Move this created corpus to Data directory .
+
+___
+
+## Trainining Model :
+
+
+
+___
+
+## Testing Model :
+
+
+
+
+___
+
+## Acknowledgements :
+
+
+
+
+
+___
+## License :
+
+
 
