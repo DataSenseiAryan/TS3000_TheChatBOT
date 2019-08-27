@@ -2,7 +2,13 @@
 Data Preprocessing/2011-08.db
 Data Preprocessing/2011-08.txt
 Data Preprocessing/2013-09.db 
- 
-data/
+
+#  2013-09small.txt  , instruction.txt is visible
+  
+data/movie_subtitles.txt
+data/2013-09.txt
+data/2011-08.txt
+
+
 save/
 
