@@ -13,6 +13,6 @@ Tony Stark 3000 - The Chat Bot Its a very basic level conversational AI.
               -[Installing Bzip2](https://www.techwalla.com/articles/how-to-install-bzip2-on-ubuntu)
               -[Unzipping Error](https://superuser.com/questions/480950/how-to-decompress-a-bz2-file)
 - Run createDB.py 
-> python3 createDB.py <
+> python3 createDB.py <br>
 This will create Database from Raw JSON text file which you unzipped earlier.
 
