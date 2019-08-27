@@ -1,2 +1,5 @@
 # ignore folder Data Preprocessing 
 Data Preprocessing/
+data/
+save/
+
