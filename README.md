@@ -34,14 +34,14 @@ ___
 
 
 - To resume training from last where yiu left :
-   > python3 main.py -tr data/2013-09small.txt -l save/model/2013-09small/1-1_512/3000_backup_bidir_model.tar -lr 0.0001 -it      50000 -b 64 -p 500 -s 1000
+   > python3 main.py -tr data/2013-09small.txt -l save/model/2013-09small/1-1_512/3000_backup_bidir_model.tar -lr 0.0001 -it         50000 -b 64 -p 500 -s 1000
 
 ___
 
 ## Testing Model :
 
 - To test the model in interactive mode :
-   > python3 main.py -te save/model/movie_subtitles/1-1_512/50000_backup_bidir_model.tar -c data/movie_subtitles.txt -i
+   > python3 main.py -te save/model/2013-09small/1-1_512/3000_backup_bidir_model.tar -c data/2013-09small.txt -i
 
 ___
 
