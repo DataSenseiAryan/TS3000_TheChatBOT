@@ -1,6 +1,7 @@
 # TS3000_TheChatBot
 Tony Stark 3000 - The Chat Bot Its a very basic level conversational AI.
-Its a social networking chat-bot trained on Reddit dataset . It supports open bounded queries developed on the concept of Neural Machine Translation. Beware its being sarcastic like its creator :stuck_out_tongue_closed_eyes: :trollface: BDW it uses Pytorch framework and Python3 
+
+Its a social networking chat-bot trained on Reddit dataset . It supports open bounded queries developed on the concept of Neural Machine Translation. Beware of its being sarcastic like its creator :stuck_out_tongue_closed_eyes: :trollface: BDW it uses Pytorch framework and Python3 
 ## Data Preprocessing :
 [Downoad Reddit Data From Here](http://files.pushshift.io/reddit/comments/)
 
