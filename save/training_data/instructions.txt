@@ -1,0 +1,1 @@
+Here training data is saved. It includes pairs,vocabulary and bathes for training .

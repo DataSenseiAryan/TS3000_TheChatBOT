@@ -11,5 +11,13 @@ data/2013-09.txt
 data/2011-08.txt
 
 
-save/
+#save/
+
+save/model/2013-09small/1-1_512/*
+
+save/model/movie_subtitles/1-1_512/*
+
+save/training_data/2013-09small/*
+
+save/training_data/movie_subtitles/*
 
