@@ -1,0 +1,4 @@
+Move your generated text corpus here .
+For example I processed text corpus 2011-08small.txt in data preprocessing folder and moved it here for further training.
+
+2011-08small.txt is not being ignored by git .
