@@ -4,7 +4,9 @@ from train import indexesFromSentence
 from load import SOS_token, EOS_token
 from load import MAX_LENGTH, loadPrepareData, Voc
 from model import *
-"import emoji"
+from pairlist import fixedpair
+import emoji
+from audio import *
 
 USE_CUDA = torch.cuda.is_available()
 device = torch.device("cuda" if USE_CUDA else "cpu")
@@ -141,16 +143,23 @@ def evaluateInput(encoder, decoder, voc, beam_size):
     pair = ''
     while(1):
         try:
-            pair = input('> ')
-            if pair == 'q': break
-            if pair == 'Who are you?' :
+            pair = takeCommand().lower()
+            #pair = input('> ')
+            print('>' + pair)
+            if pair == 'q': break 
+#             elif pair == fixedpair("who?"):
+                
+#                 output_sentence = fixedpair(pair)
+                
+            elif pair == 'who?' :
                 output_sentence = 'I am TS300'
-                #print('<', output_sentence)
+          
             elif beam_size == 1:
                 output_words, _ = evaluate(encoder, decoder, voc, pair, beam_size)
                 output_sentence = ' '.join(output_words)
                 
             print('<', output_sentence)
+            speak(output_sentence)
                 
                 
             """else:
@@ -161,8 +170,10 @@ def evaluateInput(encoder, decoder, voc, beam_size):
         except KeyError:
             print("Incorrect spelling.") """
         except KeyError:
-            "+ emoji.emojize(':thumbs_up:')"   
-            print("I don't know what to say .I was not trained for this perhaps" )
+            #"+ emoji.emojize(':thumbs_up:')"   
+            print("I don't know what to say .I was not trained for this perhaps"  + emoji.emojize(':thumbs_up:') )
+            speak("I don't know what to say .I was not trained for this perhaps")
+            
 
 
 def runTest(n_layers, hidden_size, reverse, modelFile, beam_size, inp, corpus):
