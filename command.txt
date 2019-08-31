@@ -3,7 +3,14 @@ python3 main.py -te save/model/2013-09small/1-1_512/3000_backup_bidir_model.tar 
 
 
 ### do training 
-python3 main.py -tr data/2013-09small.txt -l -lr 0.0001 -it 50000 -b 64 -p 500 -s 1000
+python3 main.py -tr data/2013-09small.txt -la 1 -hi 512 -lr 0.0001 -it 50000 -b 64 -p 500 -s 1000
+python main.py -tr <CORPUS_FILE_PATH> -la 1 -hi 512 -lr 0.0001 -it 50000 -b 64 -p 500 -s 1000
 
 ###start training from where you left 
+python main.py -tr <CORPUS_FILE_PATH> -l <MODEL_FILE_PATH> -lr 0.0001 -it 50000 -b 64 -p 500 -s 1000
+
 python3 main.py -tr data/2013-09small.txt -l save/model/2013-09small/1-1_512/3000_backup_bidir_model.tar -lr 0.0001 -it 50000 -b 64 -p 500 -s 1000
+
+## for more options 
+
+python3 main.py -h
