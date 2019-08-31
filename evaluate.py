@@ -139,44 +139,68 @@ def evaluateRandomly(encoder, decoder, voc, pairs, reverse, beam_size, n=10):
                 output_sentence = ' '.join(output_words)
                 print("{:.3f} < {}".format(score, output_sentence))
 
-def evaluateInput(encoder, decoder, voc, beam_size):
-    pair = ''
-    while(1):
-        try:
-            pair = takeCommand().lower()
-            #pair = input('> ')
-            print('>' + pair)
-            if pair == 'q': break 
-#             elif pair == fixedpair("who?"):
-                
-#                 output_sentence = fixedpair(pair)
-                
-            elif pair == 'who?' :
-                output_sentence = 'I am TS300'
-          
-            elif beam_size == 1:
-                output_words, _ = evaluate(encoder, decoder, voc, pair, beam_size)
-                output_sentence = ' '.join(output_words)
-                
-            print('<', output_sentence)
-            speak(output_sentence)
-                
-                
-            """else:
-                output_words_list = evaluate(encoder, decoder, voc, pair, beam_size)
-                for output_words, score in output_words_list:
+def evaluateInput(encoder, decoder, voc, beam_size ,audio):
+    if audio:
+        #print ("audio should be true and is " + str(audio))
+        pair = ''
+        while(1):
+            try:
+                pair = takeCommand().lower()
+                print('>' + pair)
+                if pair == 'quit': break 
+    #             elif pair == fixedpair("who?"):
+
+    #                 output_sentence = fixedpair(pair)
+
+                elif pair == 'who?' :
+                    output_sentence = 'I am TS300'
+
+                elif beam_size == 1:
+                    output_words, _ = evaluate(encoder, decoder, voc, pair, beam_size)
                     output_sentence = ' '.join(output_words)
-                    print("{:.3f} < {}".format(score, output_sentence))
-        except KeyError:
-            print("Incorrect spelling.") """
-        except KeyError:
-            #"+ emoji.emojize(':thumbs_up:')"   
-            print("I don't know what to say .I was not trained for this perhaps"  + emoji.emojize(':thumbs_up:') )
-            speak("I don't know what to say .I was not trained for this perhaps")
-            
+
+                print('<', output_sentence)
+                speak(output_sentence)
+            except KeyError:
+                #"+ emoji.emojize(':thumbs_up:')"   
+                print("I don't know what to say .I was not trained for this perhaps"  + emoji.emojize(':thumbs_up:') )
+                speak("I don't know what to say .I was not trained for this perhaps")
+    else :
+        #print ("audio should be true and is " + str(audio))
+        pair = ''
+        while(1):
+            try:
+
+                pair = input('> ')
+                print('>' + pair)
+                if pair == 'q': break 
+    #             elif pair == fixedpair("who?"):
+
+    #                 output_sentence = fixedpair(pair)
+
+                elif pair == 'who?' :
+                    output_sentence = 'I am TS300'
+
+                elif beam_size == 1:
+                    output_words, _ = evaluate(encoder, decoder, voc, pair, beam_size)
+                    output_sentence = ' '.join(output_words)
+
+                print('<', output_sentence)
 
 
-def runTest(n_layers, hidden_size, reverse, modelFile, beam_size, inp, corpus):
+                """else:
+                    output_words_list = evaluate(encoder, decoder, voc, pair, beam_size)
+                    for output_words, score in output_words_list:
+                        output_sentence = ' '.join(output_words)
+                        print("{:.3f} < {}".format(score, output_sentence))
+            except KeyError:
+                print("Incorrect spelling.") """
+            except KeyError:
+
+                print("I don't know what to say .I was not trained for this perhaps"  + emoji.emojize(':thumbs_up:') )
+
+
+def runTest(n_layers, hidden_size, reverse, modelFile, beam_size, inp, corpus, audio):
     torch.set_grad_enabled(False)
 
     voc, pairs = loadPrepareData(corpus)
@@ -196,7 +220,11 @@ def runTest(n_layers, hidden_size, reverse, modelFile, beam_size, inp, corpus):
     encoder = encoder.to(device)
     decoder = decoder.to(device)
 
-    if inp:
-        evaluateInput(encoder, decoder, voc, beam_size)
+    if inp and audio:
+        evaluateInput(encoder, decoder, voc, beam_size, audio)
+                    
+    elif inp:
+        evaluateInput(encoder, decoder, voc, beam_size, audio)
+    
     else:
         evaluateRandomly(encoder, decoder, voc, pairs, reverse, beam_size, 20)

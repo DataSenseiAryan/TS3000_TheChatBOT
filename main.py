@@ -20,6 +20,7 @@ def parse():
     parser.add_argument('-s', '--save', type=int, default=500, help='Save every s iterations')
     parser.add_argument('-lr', '--learning_rate', type=float, default=0.01, help='Learning rate')
     parser.add_argument('-d', '--dropout', type=float, default=0.1, help='Dropout probability for rnn and dropout layers')
+    parser.add_argument('-v', '--voice_mode',type=bool, default=False, help='Interact with bot voice command mode')
 
     args = parser.parse_args()
     return args
@@ -46,11 +47,16 @@ def run(args):
         n_layers, hidden_size, reverse = parseFilename(args.load)
         trainIters(args.train, reverse, n_iteration, learning_rate, batch_size,
                     n_layers, hidden_size, print_every, save_every, dropout, loadFilename=args.load)
+   
+    elif args.test and args.voice_mode :
+        n_layers, hidden_size, reverse = parseFilename(args.test, True)
+            
+        runTest(n_layers, hidden_size, reverse, args.test, beam_size, inp, args.corpus ,audio = True)
+    
     elif args.test:
         n_layers, hidden_size, reverse = parseFilename(args.test, True)
-        runTest(n_layers, hidden_size, reverse, args.test, beam_size, inp, args.corpus)
-
-
+        runTest(n_layers, hidden_size, reverse, args.test, beam_size, inp, args.corpus ,audio = False)
+                        
 if __name__ == '__main__':
     args = parse()
     run(args)
