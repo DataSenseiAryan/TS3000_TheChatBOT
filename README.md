@@ -1,3 +1,5 @@
+Will be working on this on after march 2019 . Currently busy in college semester!
+
 # TS3000_TheChatBot
 Tony Stark 3000 - The Chat Bot Its a very basic level conversational AI.
 
@@ -65,5 +67,5 @@ Copyright (c) 2019 Aryan Chaudhary
 [LICENSE](https://github.com/aryanc55/TS3000_TheChatBOT/blob/master/LICENSE)
 
 
-
+[![HitCount](http://hits.dwyl.io/aryanc55/https://githubcom/aryanc55/TS3000_TheChatBOT.svg)](http://hits.dwyl.io/aryanc55/https://githubcom/aryanc55/TS3000_TheChatBOT)
 
